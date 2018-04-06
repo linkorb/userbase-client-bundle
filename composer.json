@@ -1,0 +1,21 @@
+{
+    "name": "userbase/client-bundle",
+    "description": "UserBase Client Bundle for Symfony",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "require": {
+        "symfony/config": "^4",
+        "symfony/dependency-injection": "^4",
+        "symfony/http-kernel": "^4",
+        "userbase/client": "^1.2"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.11"
+    },
+    "autoload": {
+        "psr-4": { "UserBase\\ClientBundle\\": "" },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    }
+}

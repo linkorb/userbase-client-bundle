@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services
+        http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="user_base_client.http_client" class="UserBase\Client\Client" public="false">
+            <argument key="$url" />
+            <argument key="$username" />
+            <argument key="$password" />
+            <argument key="$partition" />
+        </service>
+        <service id="user_base_client.user_provider" class="UserBase\Client\UserProvider" public="false">
+            <argument key="$client" type="service" id="user_base_client.http_client" />
+            <argument key="$shouldRefresh" />
+        </service>
+    </services>
+</container>
