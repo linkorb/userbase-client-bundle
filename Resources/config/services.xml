@@ -14,6 +14,7 @@
         <service id="user_base_client.user_provider" class="UserBase\Client\UserProvider" public="false">
             <argument key="$client" type="service" id="user_base_client.http_client" />
             <argument key="$shouldRefresh" />
+            <argument key="$dispatcher" type="service" id="event_dispatcher" />
         </service>
     </services>
 </container>
