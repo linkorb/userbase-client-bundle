@@ -27,7 +27,7 @@ class UserBaseClientExtension extends Extension
         $httpClientDefn->replaceArgument('$password', $config['http_client']['password']);
         $httpClientDefn->replaceArgument('$partition', $config['http_client']['partition']);
 
-        $userProvidertDefn = $container->getDefinition('user_base_client.user_provider');
-        $userProvidertDefn->replaceArgument('$shouldRefresh', $config['user_provider']['always_refresh_user']);
+        $userProviderDefn = $container->getDefinition('user_base_client.user_provider');
+        $userProviderDefn->replaceArgument('$shouldRefresh', $config['user_provider']['always_refresh_user']);
     }
 }
