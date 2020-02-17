@@ -4,9 +4,9 @@
     "type": "symfony-bundle",
     "license": "MIT",
     "require": {
-        "symfony/config": "^4",
-        "symfony/dependency-injection": "^4",
-        "symfony/http-kernel": "^4",
+        "symfony/config": "^4 || ^5.0",
+        "symfony/dependency-injection": "^4 || ^5.0",
+        "symfony/http-kernel": "^4 || ^5.0",
         "userbase/client": "^1.5"
     },
     "require-dev": {
