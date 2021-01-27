@@ -6,6 +6,7 @@ use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\DependencyInjection\Reference;
 
 class UserBaseClientExtension extends Extension
 {
@@ -26,6 +27,16 @@ class UserBaseClientExtension extends Extension
         $httpClientDefn->replaceArgument('$username', $config['http_client']['username']);
         $httpClientDefn->replaceArgument('$password', $config['http_client']['password']);
         $httpClientDefn->replaceArgument('$partition', $config['http_client']['partition']);
+
+        if ($config['cache']['enabled']) {
+            $httpClientDefn->addMethodCall(
+                'setCache',
+                [
+                    new Reference($config['cache']['id']),
+                    $config['cache']['lifetime']
+                ]
+            );
+        }
 
         $userProviderDefn = $container->getDefinition('user_base_client.user_provider');
         $userProviderDefn->replaceArgument('$shouldRefresh', $config['user_provider']['always_refresh_user']);
