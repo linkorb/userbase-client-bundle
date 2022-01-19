@@ -1,58 +1,31 @@
 Installation
 ============
 
-Applications that use Symfony Flex
-----------------------------------
-
 Open a command console, enter your project directory and execute:
 
 ```console
-$ composer require userbase/client-bundle
+$ composer require --no-scripts userbase/client-bundle
 ```
 
-Applications that don't use Symfony Flex
-----------------------------------------
+Create the bundle configuration:
 
-### Step 1: Download the Bundle
+```yaml
+# config/packages/userbase-client-bundle.yaml
+user_base_client:
+  http_client:
+    url: '%env(USERBASE_DSN)%'
+```
 
-Open a command console, enter your project directory and execute the
-following command to download the latest stable version of this bundle:
+```shell
+# .env.local
+USERBASE_DSN=https://key:secret@userbase.example.com/api/v1
+```
+
+Complete the installation:
 
 ```console
-$ composer require userbase/client-bundle
+$ composer auto-scripts post-install-cmd
 ```
-
-This command requires you to have Composer installed globally, as explained
-in the [installation chapter](https://getcomposer.org/doc/00-intro.md)
-of the Composer documentation.
-
-### Step 2: Enable the Bundle
-
-Then, enable the bundle by adding it to the list of registered bundles
-in the `app/AppKernel.php` file of your project:
-
-```php
-<?php
-// app/AppKernel.php
-
-// ...
-class AppKernel extends Kernel
-{
-    public function registerBundles()
-    {
-        $bundles = array(
-            // ...
-            new UserBase\ClientBundle\UserBaseClientBundle(),
-        );
-
-        // ...
-    }
-
-    // ...
-}
-```
-
-# Configuration
 
 ## Caching
 
