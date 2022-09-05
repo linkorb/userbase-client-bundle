@@ -6,7 +6,7 @@
     "require": {
         "symfony/config": "^4.0 || ^5.0 || ^6.0",
         "symfony/dependency-injection": "^4.0 || ^5.0 || ^6.0",
-        "symfony/http-kernel": "^4.0 || ^5.0, >=5.1.5 || ^5.0",
+        "symfony/http-kernel": "^4.0 || ^5.0, >=5.1.5 || ^6.0",
         "userbase/client": "^2.0"
     },
     "require-dev": {
