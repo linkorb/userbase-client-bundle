@@ -13,9 +13,6 @@
         "friendsofphp/php-cs-fixer": "^2.11"
     },
     "autoload": {
-        "psr-4": { "UserBase\\ClientBundle\\": "" },
-        "exclude-from-classmap": [
-            "/Tests/"
-        ]
+        "psr-4": { "UserBase\\ClientBundle\\": "" }
     }
 }
