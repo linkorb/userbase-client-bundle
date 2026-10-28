@@ -1,0 +1,20 @@
+services:
+    user_base_client.http_client:
+        class: UserBase\Client\Client
+        public: true
+        arguments:
+            $url: null
+            $username: null
+            $password: null
+            $partition: null
+
+    UserBase\Client\Client:
+        alias: user_base_client.http_client
+
+    user_base_client.user_provider:
+        class: UserBase\Client\UserProvider
+        public: false
+        arguments:
+            $client: '@user_base_client.http_client'
+            $shouldRefresh: null
+            $dispatcher: '@event_dispatcher'
